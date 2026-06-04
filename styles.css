@@ -357,6 +357,40 @@ h3 {
   border-color: var(--green);
 }
 
+.github-card {
+  gap: 14px;
+  min-height: 0;
+  padding: 12px;
+}
+
+.github-card img {
+  width: 72px;
+  height: 72px;
+  flex: 0 0 auto;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 1px solid var(--line);
+}
+
+.github-card span,
+.github-card strong,
+.github-card small {
+  display: block;
+}
+
+.github-card span {
+  min-width: 0;
+}
+
+.github-card strong {
+  margin-bottom: 3px;
+}
+
+.github-card small {
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+
 .site-footer {
   display: flex;
   justify-content: space-between;
