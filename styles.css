@@ -9,6 +9,47 @@
   --coral: #e96f4c;
   --gold: #d69c2f;
   --shadow: 0 24px 60px rgba(24, 32, 31, 0.12);
+  --radius: 8px;
+  --green-tint-bg: #eaf2ed;
+  --green-tint-border: #d1e1d6;
+}
+
+/* ── Shared Utilities ─────────────────────────────────────── */
+
+.surface-box {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.icon-badge {
+  display: inline-grid;
+  place-items: center;
+  color: #fff;
+  background: var(--green);
+  border-radius: var(--radius);
+  font-weight: 800;
+}
+
+.actions-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.green-tint {
+  color: var(--green-dark);
+  background: var(--green-tint-bg);
+  border: 1px solid var(--green-tint-border);
+  border-radius: var(--radius);
+}
+
+.section-divider-top {
+  border-top: 1px solid var(--line);
+}
+
+.section-divider-bottom {
+  border-bottom: 1px solid var(--line);
 }
 
 * {
@@ -58,13 +99,8 @@ a {
 }
 
 .brand-mark {
-  display: grid;
   width: 38px;
   height: 38px;
-  place-items: center;
-  color: #fff;
-  background: var(--green);
-  border-radius: 8px;
   font-size: 0.82rem;
 }
 
@@ -140,21 +176,15 @@ h3 {
   font-size: 1.08rem;
 }
 
-.hero-actions,
-.contact-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-}
+/* .hero-actions and .contact-actions now use .actions-row utility */
 
-.button,
-.contact-actions a {
+.button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   min-height: 48px;
   padding: 12px 18px;
-  border-radius: 8px;
+  border-radius: var(--radius);
   font-weight: 800;
 }
 
@@ -173,12 +203,13 @@ h3 {
   background: var(--surface);
 }
 
+.button-secondary:hover {
+  border-color: var(--green);
+}
+
 .hero-panel {
   position: relative;
   overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: var(--surface);
   box-shadow: var(--shadow);
 }
 
@@ -219,18 +250,16 @@ h3 {
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
   gap: clamp(28px, 5vw, 72px);
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
 }
+
+/* .about now uses .section-divider-top + .section-divider-bottom utilities */
 
 .arabic-note {
   padding: 22px;
-  color: var(--green-dark);
-  background: #edf4ef;
-  border: 1px solid #d0e3d6;
-  border-radius: 8px;
   font-size: 1.05rem;
 }
+
+/* .arabic-note now uses .green-tint utility in HTML */
 
 .cards {
   display: grid;
@@ -238,12 +267,7 @@ h3 {
   gap: 16px;
 }
 
-.card,
-.language-box {
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: var(--surface);
-}
+/* .card and .language-box now use .surface-box utility */
 
 .card {
   min-height: 210px;
@@ -251,16 +275,10 @@ h3 {
 }
 
 .card-icon {
-  display: inline-grid;
   width: 42px;
   height: 42px;
   margin-bottom: 28px;
-  place-items: center;
-  color: #fff;
-  background: var(--green);
-  border-radius: 8px;
   font-size: 0.78rem;
-  font-weight: 800;
 }
 
 .card p {
@@ -283,9 +301,6 @@ h3 {
 
 .tag-list span {
   padding: 10px 14px;
-  color: var(--green-dark);
-  background: #eaf2ed;
-  border: 1px solid #d1e1d6;
   border-radius: 999px;
   font-weight: 700;
 }
@@ -293,6 +308,8 @@ h3 {
 .language-box {
   padding: 24px;
 }
+
+/* .language-box uses .surface-box utility in HTML */
 
 .language-row {
   display: flex;
@@ -306,10 +323,7 @@ h3 {
   color: var(--muted);
 }
 
-.focus {
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-}
+/* .focus now uses .section-divider-top + .section-divider-bottom utilities */
 
 .focus-list {
   display: grid;
@@ -320,11 +334,10 @@ h3 {
 .focus-list div {
   min-height: 132px;
   padding: 18px;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 8px;
   font-weight: 700;
 }
+
+/* .focus-list div uses .surface-box utility in HTML */
 
 .focus-list span {
   display: block;
@@ -349,12 +362,6 @@ h3 {
 .contact-actions a {
   justify-content: flex-start;
   color: var(--green-dark);
-  background: var(--surface);
-  border: 1px solid var(--line);
-}
-
-.contact-actions a:hover {
-  border-color: var(--green);
 }
 
 .github-card {
@@ -367,7 +374,7 @@ h3 {
   width: 72px;
   height: 72px;
   flex: 0 0 auto;
-  border-radius: 8px;
+  border-radius: var(--radius);
   object-fit: cover;
   border: 1px solid var(--line);
 }
@@ -397,8 +404,9 @@ h3 {
   gap: 16px;
   padding: 26px clamp(18px, 5vw, 64px);
   color: var(--muted);
-  border-top: 1px solid var(--line);
 }
+
+/* .site-footer now uses .section-divider-top utility in HTML */
 
 .site-footer p {
   margin: 0;
