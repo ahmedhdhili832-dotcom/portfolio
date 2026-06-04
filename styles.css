@@ -335,20 +335,16 @@ h3 {
   border-radius: 999px;
 }
 
-.poster {
-  border-top: 1px solid var(--line);
-}
-
 .poster-figure {
-  margin: 0;
+  margin: 24px 0 0;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .poster-figure img {
   display: block;
   width: 100%;
-  max-width: 560px;
+  max-width: 360px;
   height: auto;
   border: 1px solid var(--line);
   border-radius: 8px;
